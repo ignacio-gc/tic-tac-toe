@@ -7,11 +7,18 @@
   margin-top: -1px;
   padding: 0;
   text-align: center;
-  height: 5rem;
-  width: 5rem;
+  height: 12vw;
+  width: 12vw;
   border: 2px solid #c5c2b8;
   background-color: transparent;
 }
+/* 
+@media only screen and (max-width: 600px) {
+  .square {
+    height: 2rem;
+    width: 2rem;
+  }
+} */
 
 .square:focus {
   outline: none;

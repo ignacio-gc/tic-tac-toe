@@ -11,3 +11,9 @@
   text-decoration: none;
   color: rgb(180, 90, 135);
 }
+
+@media only screen and (max-width: 600px) {
+  .codeBlock code {
+    font-size: small;
+  }
+}
