@@ -117,49 +117,6 @@ fn utility(board: &Game) -> i64 {
     }
 }
 
-//  Returns the optimal action for the current player on the board.
-fn minimax(game: &Game) -> Option<usize> {
-    if terminal(game) {
-        return None;
-    }
-
-    let mut best_action: usize = 2;
-
-    match player(game) {
-        Square::X => {
-            let mut max_v = i64::MIN;
-            for action in actions(game) {
-                let next_board = result(game, action).unwrap();
-                if winner(&next_board) == Some(Square::X) {
-                    return Some(action);
-                }
-                let v = min_val(&next_board, i64::MIN, i64::MAX);
-                if v > max_v {
-                    best_action = action;
-                    max_v = v;
-                }
-            }
-        }
-        Square::O => {
-            let mut min_v = i64::MAX;
-            for action in actions(game) {
-                let next_board = result(game, action).unwrap();
-                if winner(&next_board) == Some(Square::O) {
-                    return Some(action);
-                }
-                let v = max_val(&next_board, i64::MIN, i64::MAX);
-                if v < min_v {
-                    best_action = action;
-                    min_v = v;
-                }
-            }
-        }
-        Square::Null => (),
-    }
-
-    Some(best_action)
-}
-
 // Returns the max value "v"
 fn max_val(game: &Game, mut alpha: i64, beta: i64) -> i64 {
     if terminal(&game) {
@@ -201,4 +158,47 @@ pub fn solve(board: &JsValue) -> usize {
     };
 
     minimax(&game).unwrap()
+}
+
+//  Returns the optimal action for the current player on the board.
+fn minimax(game: &Game) -> Option<usize> {
+    if terminal(game) {
+        return None;
+    }
+
+    let mut best_action: usize = 2;
+
+    match player(game) {
+        Square::X => {
+            let mut max_v = i64::MIN;
+            for action in actions(game) {
+                let next_board = result(game, action).unwrap();
+                if winner(&next_board) == Some(Square::X) {
+                    return Some(action);
+                }
+                let v = min_val(&next_board, i64::MIN, i64::MAX);
+                if v > max_v {
+                    best_action = action;
+                    max_v = v;
+                }
+            }
+        }
+        Square::O => {
+            let mut min_v = i64::MAX;
+            for action in actions(game) {
+                let next_board = result(game, action).unwrap();
+                if winner(&next_board) == Some(Square::O) {
+                    return Some(action);
+                }
+                let v = max_val(&next_board, i64::MIN, i64::MAX);
+                if v < min_v {
+                    best_action = action;
+                    min_v = v;
+                }
+            }
+        }
+        Square::Null => (),
+    }
+
+    Some(best_action)
 }

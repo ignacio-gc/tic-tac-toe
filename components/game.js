@@ -26,7 +26,7 @@ const Game = dynamic({
 
           // set the computer move
           if (hist.length < 5) {
-            const squares_to_rust = squares.map((n) => n === null ? String(n) : n)
+            const squares_to_rust = squares.map((n) => n === null ? "Null" : n)
             const move = rustModule.solve(squares_to_rust)
             squares[move] = !xIsNext ? "X" : "O";
           }
@@ -73,17 +73,21 @@ const Game = dynamic({
 
         return (
           <div className={styles.game}>
-            <div>
+            <div className={styles.board}>
               <Board
+                className={styles.boardItem}
                 squares={current.squares}
                 onClick={i => handleClick(i)}
               />
             </div>
             <div className={styles.gameInfo}>
               <label className={styles.switch}>
-                <span className={styles.checkbox}>
-                  Jugar como X? <input type="checkbox" checked={xIsNext} onChange={() => changePlayer()} />
-                </span>
+                <ul className={styles.checkbox}>
+                  <li>
+                    Jugar como X?
+                    <input type="checkbox" checked={xIsNext} onChange={() => changePlayer()} />
+                  </li>
+                </ul>
               </label>
               <div className={styles.status}>{status}</div>
               <div className={styles.moves}>

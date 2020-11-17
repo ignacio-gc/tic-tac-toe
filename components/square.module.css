@@ -1,24 +1,24 @@
 .square {
   color: #5c6464;
   float: left;
-  font-size: 4rem;
+  font-size: 5em;
   font-weight: bold;
   margin-right: -1px;
   margin-top: -1px;
   padding: 0;
   text-align: center;
-  height: 12vw;
-  width: 12vw;
+  height: 1.1em;
+  width: 1.1em;
   border: 2px solid #c5c2b8;
   background-color: transparent;
 }
-
+/* 
 @media only screen and (max-width: 600px) {
   .square {
-    height: 2rem;
-    width: 2rem;
+    height: 3rem;
+    width: 3rem;
   }
-}
+} */
 
 .square:focus {
   outline: none;

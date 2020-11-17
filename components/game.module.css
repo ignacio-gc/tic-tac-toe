@@ -1,26 +1,43 @@
 .game {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
+}
+
+@media only screen and (max-width: 600px) {
+  .game {
+    flex-direction: column;
+    align-items: center;
+    min-width: 300px;
+  }
+}
+
+.board {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  margin-bottom: 5vh;
+}
+
+.boardItem {
+  width: 32%;
+  padding-bottom: 18%; /* 32:18, i.e. 16:9 */
+  margin-bottom: 2%; /* (100-32*3)/2 */
 }
 
 .gameInfo {
-  margin-left: 20px;
   border: 2px solid #c5c2b8;
-  margin-top: -1px;
-  padding: 0.8rem;
-  font-size: 0.9rem;
+  border-radius: 5%;
+  width: 260px;
+  height: 260px;
+  margin: auto;
 }
 
-.gameInfo ol,
-.gameInfo ul {
-  padding-left: 30px;
-}
 
 .switch,
 .status,
 .status {
-  margin: 0.7rem;
+  margin: 0 1rem;
+  padding: 0 5px;
 }
 
 .moves button {
@@ -33,6 +50,6 @@
   font-size: 0.9rem;
 }
 
-.checkbox input {
-  padding-left: 2vw;
+.checkbox {
+  /* margin: auto; */
 }
