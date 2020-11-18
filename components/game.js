@@ -46,7 +46,7 @@ const Game = dynamic({
             'Inicio';
           return (
             <li key={move}>
-              <button onClick={() => jumpTo(move)}>{desc}</button>
+              <p>Ir a jugada</p> <button onClick={() => jumpTo(move)}># {move}</button>
             </li>
           );
         });
@@ -60,7 +60,7 @@ const Game = dynamic({
           if (winner) {
             setStatus("Ganador: " + winner);
           } else {
-            setStatus("Siguiente jugador: " + (xIsNext ? "X" : "O"));
+            setStatus("Jugador: " + (xIsNext ? "X" : "O"));
           }
 
         });
@@ -80,20 +80,26 @@ const Game = dynamic({
                 onClick={i => handleClick(i)}
               />
             </div>
-            <div className={styles.gameInfo}>
-              <label className={styles.switch}>
-                <ul className={styles.checkbox}>
-                  <li>
-                    Jugar como X?
-                    <input type="checkbox" checked={xIsNext} onChange={() => changePlayer()} />
-                  </li>
-                </ul>
-              </label>
+            <div className={styles.options}>
+              <ul className={styles.checkbox}>
+                <li>
+                  Jugar como X?
+                  <input type="checkbox" checked={xIsNext} onChange={() => changePlayer()} />
+                </li>
+                <li>
+                  {status}
+                </li>
+                <li>
+                  <button onClick={() => jumpTo(0)}>Reiniciar</button>
+                </li>
+              </ul>
+            </div>
+            {/* <div className={styles.gameInfo}>
               <div className={styles.status}>{status}</div>
               <div className={styles.moves}>
                 <ol>{moves}</ol>
               </div>
-            </div>
+            </div> */}
           </div>
         );
       })
