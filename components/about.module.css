@@ -17,3 +17,7 @@
     font-size: small;
   }
 }
+
+.codeBlock {
+  border-radius: 15px;
+}
