@@ -100,7 +100,7 @@ fn min_val(game: &Game, alpha: i64, mut beta: i64) -> i64 {
         La implementación está hecha en Rust y compilado a Webassembly con wasm-pack. La página web está hecha en Next.js.
       </div>
       <div className={styles.text}>
-        Cada vez que uno hace una jugada el programa responde con la respuesta óptima en base a la siguiente función:
+        Cada vez que uno hace una jugada el programa responde de manera óptima llamando a la siguiente función <code>minimax</code>:
       </div>
       <div className={styles.text}>
         <pre className={styles.codeBlock}><code className="language-rust">{minimaxCode}</code></pre>
