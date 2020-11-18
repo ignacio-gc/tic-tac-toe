@@ -6,14 +6,14 @@ import 'prismjs/components/prism-rust'
 
 const About = () => {
 
-  useEffect(() => {
-    Prism.highlightAll();
-  }, []);
+    useEffect(() => {
+        Prism.highlightAll();
+    }, []);
 
-  const minimaxCode = 
-  `
-   //  Returns the optimal action for the current player on the board.
-   fn minimax(game: &Game) -> Option<usize> {
+    const minimaxCode =
+
+`//  Returns the optimal action for the current player on the board.
+fn minimax(game: &Game) -> Option<usize> {
     if terminal(game) {
         return None;
     }
@@ -87,26 +87,25 @@ fn min_val(game: &Game, alpha: i64, mut beta: i64) -> i64 {
     }
 
     v
-}
-  `
+}`
 
-  return (
-    <>
-      <div className={styles.text}>
-        Las respuestas automáticas en el TA-TE-TI de arriba están generadas en base al algorítmo <a href="https://es.wikipedia.org/wiki/Minimax" target="_">minimax</a>.
+    return (
+        <>
+            <div className={styles.text}>
+                Las respuestas automáticas en el TA-TE-TI de arriba están generadas en base al algorítmo <a href="https://es.wikipedia.org/wiki/Minimax" target="_">minimax</a>.
         Como dice Wikipedia "minimax es un método de decisión para minimizar la pérdida máxima esperada en juegos con adversario y con información perfecta".
       </div>
-      <div className={styles.text}>
-        La implementación (<a href="https://github.com/ignacio-gc/tic-tac-toe" target="_">link código completo</a>) está hecha en Rust y compilado a Webassembly con wasm-pack. La página web está hecha en Next.js.
+            <div className={styles.text}>
+                La implementación (<a href="https://github.com/ignacio-gc/tic-tac-toe" target="_">link código completo</a>) está hecha en Rust y compilado a Webassembly con wasm-pack. La página web está hecha en Next.js.
       </div>
-      <div className={styles.text}>
-        Cada vez que uno hace una jugada el programa responde de manera óptima llamando a la siguiente función <code>minimax</code>:
+            <div className={styles.text}>
+                Cada vez que uno hace una jugada el programa responde de manera óptima llamando a la siguiente función <code>minimax</code>:
       </div>
-      <div className={styles.text}>
-        <pre className={styles.codeBlock}><code className="language-rust">{minimaxCode}</code></pre>
-      </div>
-    </>
-  )
+            <div className={styles.text}>
+                <pre className={styles.codeBlock}><code className="language-rust">{minimaxCode}</code></pre>
+            </div>
+        </>
+    )
 }
 
 export default About
